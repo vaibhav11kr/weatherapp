@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import Search from "./components/Search";
+import Main from "./components/Main";
+import Hourlyforecast from "./components/Hourlyforecast";
+import AirConditions from "./components/AirConditions";
+import Time from "./components/Time";
+import Weeklyforecast from "./components/Weeklyforecast";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex flex-col h-screen w-screen bg-[#0B131E]">
+      <div className="flex flex-col items-center">
+        <Search/>
+        <Time />
+      </div>
+      <div className="flex flex-col">
+        <div className= "w-full flex flex-col items-center">
+          <Main />
+          <Hourlyforecast />
+          <AirConditions />
+        </div>
+        <div className=" w-full flex flex-col justify-center items-center">
+          <Weeklyforecast />
+        </div>
+      </div>
     </div>
   );
 }
