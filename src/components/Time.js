@@ -1,23 +1,12 @@
-import React from 'react'
+import React from "react";
 
 const Time = () => {
   return (
-    <div className="relative w-11/12 bg-white rounded-lg h-14 p-4 mt-6">
-      <input
-        type="text"
-        className="w-full px-3 focus:outline-none hover:cursor-pointer"
-        placeholder="search your city ..."
-        name=""
-        required
-      />
-      <span className="absolute font-extrabold border-l pl-4 top-4 right-14 ">
-        {/* <UilSearchAlt size = {24} className="cursor-pointer transition ease-in hover:scale-125" /> */}
-      </span>
-      <span className="absolute top-4 right-5">
-        {/* <UilMapMarker size = {24} className="cursor-pointer transition ease-in hover:scale-125" /> */}
-      </span>
+    <div className="relative w-11/12 bg-[#202B3B] flex flex-row items-center rounded-lg mt-4 justify-between">
+      <h2 className="text-xs font-bold text-[#F0F1F1] ml-2 p-2">LOCAL TIME : 12:32 AM</h2>
+      <h2 className="text-xs font-bold text-[#F0F1F1] mr-2 p-2">LOCAL DATE : 25-12-2023</h2>
     </div>
-  )
-}
+  );
+};
 
-export default Time
+export default Time;
