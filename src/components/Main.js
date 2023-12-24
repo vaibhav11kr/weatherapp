@@ -17,7 +17,7 @@ const Main = () => {
         <p className="text-xs pr-3 mr-3 text-[#F0F1F1] border-r-2 border-[#9399A2]"> Rise </p>
         <p className="text-xs pr-3 mr-3 text-[#F0F1F1] border-r-2 border-[#9399A2]"> Set</p>
         <p className="text-xs pr-3 mr-3 text-[#F0F1F1] border-r-2 border-[#9399A2]"> High</p>
-        <p className="text-xs pr-3 mr-3 text-[#F0F1F1]">Low </p>
+        <p className="text-xs text-[#F0F1F1]">Low </p>
       </div>
     </div>
   );

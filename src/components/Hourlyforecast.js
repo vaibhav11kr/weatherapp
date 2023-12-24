@@ -5,7 +5,7 @@ const Hourlyforecast = () => {
     <div className="relative w-11/12 bg-[#202B3B] rounded-lg mt-4 p-4">
       <h2 className="text-xs text-[#9399A2] text-center">TODAY'S FORECAST</h2>
       <div className="flex whitespace-nowrap overflow-x-auto mt-2 ">
-      <div className='flex flex-col justify-center items-center pr-3 h-16 m-2 border-r-2 border-[#35445D]'>
+      <div className='flex flex-col justify-center items-center pr-3 w-40 h-16 m-2 border-r-2 border-[#35445D]'>
         <h3 className='text-[#9399A2]'>
           2:00 PM
         </h3>
