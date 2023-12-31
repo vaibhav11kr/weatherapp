@@ -1,6 +1,5 @@
-// App.jsx
+
 import React from 'react';
-import './App.css';
 import Search from './components/Search';
 import Main from './components/Main';
 import Hourlyforecast from './components/Hourlyforecast';
