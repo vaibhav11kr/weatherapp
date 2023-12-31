@@ -9,7 +9,7 @@ import getFormattedWeatherData from "./services/weatherServices";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [query, setQuery] = useState({ q: "berlin" });
+  const [query, setQuery] = useState({ q: "delhi" });
   const [weather, setWeather] = useState(null);
 
   useEffect(() => {
@@ -24,18 +24,17 @@ function App() {
   return (
     <div className="flex flex-col p-4 w-screen h-screen overflow-scroll md:overflow-hidden bg-[#0B131E]">
       <div className="flex flex-col md:flex-row items-center">
-        <Search />
-        <Time />
+        <Search setQuery={setQuery} />
+        <Time weather={weather} />
       </div>
       <div className="flex flex-col md:flex-row md:mt-1 mt-6 justify-center box-border ">
         <div className= "flex flex-col md:w-[60vw] box-border p-4">
-          <Main />
+          <Main weather={weather} />
           <Hourlyforecast />
-          <AirConditions/>
+          <AirConditions weather={weather} />
         </div>
         <div className="md:w-[40vw] flex flex-col p-4 box-border">
           <Weeklyforecast />
-          console.log(weather);
         </div>
       </div>
     </div>
