@@ -23,12 +23,13 @@ const getWeatherData = (infoType, searchParams) => {
 const formatCurrentWeather = (data) => {
   const {
     coord: { lat, lon },
-    main: { temp, feels_like, temp_min, temp_max, humidity },
+    main: { temp, feels_like, temp_min, temp_max, humidity, pressure },
     name,
     dt,
     sys: { country, sunrise, sunset },
     weather,
     wind: { speed },
+    visibility,
   } = data;
 
   const { main: details, icon } = weather[0];
@@ -49,18 +50,20 @@ const formatCurrentWeather = (data) => {
     details,
     icon,
     speed,
+    pressure,
+    visibility,
   };
 };
 
 const formatForecastWeather = (data) => {
-  let { timezone, daily, hourly } = data;
-
+  let { timezone, daily, hourly, current } = data;
   if (Array.isArray(daily) && Array.isArray(hourly)) {
     daily = daily.slice(1, 9).map((d) => {
       return {
         title: formatToLocalTime(d.dt, timezone, "ccc"),
         temp: d.temp.day,
         icon: d.weather[0].icon,
+        main: d.weather[0].main,
       };
     });
 
@@ -71,11 +74,12 @@ const formatForecastWeather = (data) => {
         icon: d.weather[0].icon,
       };
     });
+    current = current.uvi;
   } else {
     console.error('Daily or hourly data is not an array or is undefined.');
   }
 
-  return { timezone, daily, hourly };
+  return { timezone, daily, hourly, current };
 };
 
 const getFormattedWeatherData = async (searchParams) => {
@@ -90,7 +94,7 @@ const getFormattedWeatherData = async (searchParams) => {
       await getWeatherData("onecall", {
         lat,
         lon,
-        exclude: "current,minutely,alerts",
+        exclude: "minutely,alerts",
         units: "metric",
       })
     );

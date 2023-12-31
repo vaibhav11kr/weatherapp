@@ -1,11 +1,13 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { UilSearchAlt, UilMapMarker } from "@iconscout/react-unicons";
 
 const Search = ({ setQuery }) => {
   const [city, setCity] = useState("");
+
   const handleSearchClick = () => {
     if (city !== "") setQuery({ q: city });
   };
+
   const handleLocationClick = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -19,12 +21,20 @@ const Search = ({ setQuery }) => {
       });
     }
   };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      handleSearchClick();
+    }
+  };
+
   return (
     <div className="p-4 w-screen md:flex md:justify-center md:items-center md:w-[63vw]">
-      <div className="relative md:w-[40vw] bg-white flex items-center rounded-lg h-10 ">
+      <div className="relative md:w-[40vw] bg-white flex items-center rounded-lg h-10">
         <input
           value={city}
           onChange={(e) => setCity(e.currentTarget.value)}
+          onKeyDown={handleKeyDown}
           type="text"
           className="md:w-[90%] w-[80%] h-7 px-3 focus:outline-none hover:cursor-pointer"
           placeholder="search your city ..."
@@ -49,4 +59,5 @@ const Search = ({ setQuery }) => {
     </div>
   );
 };
+
 export default Search;
