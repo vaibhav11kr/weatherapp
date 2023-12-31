@@ -6,7 +6,7 @@ const Weeklyforecast = ({ weather }) => {
 
   return (
     <div className="bg-[#202B3B] rounded-lg p-4 font-bold">
-      <h2 className="text-xs text-[#9399A2] text-center">WEEKLY FORECAST</h2>
+      <h2 className="text-base text-[#9399A2] text-center">WEEKLY FORECAST</h2>
 
       {weather.map((day, index) => (
         <div key={index} className="flex flex-row items-center m-3 justify-between flex-grow pb-3 border-b-2 border-[#35445D]">

@@ -3,7 +3,7 @@ import { iconUrlFromCode } from "../services/weatherServices";
 
 const Hourlyforecast = ({weather}) => {
   const containerClass = "bg-[#202B3B] rounded-lg mt-4 p-4";
-  const headingClass = "text-xs text-[#9399A2] text-center";
+  const headingClass = "text-base text-[#9399A2] text-center";
   const innerContainerClass = "flex whitespace-nowrap overflow-x-auto mt-2";
   const itemContainerClass = "flex flex-col flex-grow justify-center items-center pr-3 h-25 w-40 m-2 border-r-2 border-[#35445D]";
   const timeClass = "text-[#9399A2]";
