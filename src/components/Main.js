@@ -4,7 +4,18 @@ import {
   iconUrlFromCode,
 } from "../services/weatherServices";
 const Main = ({
-  weather
+  weather: {
+    details,
+    icon,
+    temp,
+    temp_min,
+    temp_max,
+    sunrise,
+    sunset,
+    name,
+    country,
+    timezone,
+  }
 }) => {
   const containerClass =
     "relative bg-[#0B131E] flex flex-col items-center rounded-lg h-[10.5rem] md:h-[15rem]";
@@ -17,18 +28,18 @@ const Main = ({
   const infoBarClass =
     "bg-[#202B3B] w-[100%] md:w-[90%] md:h-10 h-8 flex absolute bottom-0 justify-center items-center rounded-lg";
   const infoBarItemClass = "text-[0.5rem] md:text-base text-[#F0F1F1]";
-  const {
-    details,
-    icon,
-    temp,
-    temp_min,
-    temp_max,
-    sunrise,
-    sunset,
-    name,
-    country,
-    timezone,
-  } = weather || {};
+  // const {
+  //   details,
+  //   icon,
+  //   temp,
+  //   temp_min,
+  //   temp_max,
+  //   sunrise,
+  //   sunset,
+  //   name,
+  //   country,
+  //   timezone,
+  // } = weather ;
   console.log(sunrise)
   return (
     <div className={containerClass}>

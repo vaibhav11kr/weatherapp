@@ -7,8 +7,18 @@ const getWeatherData = (infoType, searchParams) => {
   const url = new URL(BASE_URL + "/" + infoType);
   url.search = new URLSearchParams({ ...searchParams, appid: API_KEY });
 
-  return fetch(url).then((res) => res.json());
+  return fetch(url)
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+      return res.json();
+    })
+    .catch((error) => {
+      console.error("Error fetching weather data:", error);
+    });
 };
+
 
 const formatCurrentWeather = (data) => {
   const {
@@ -69,23 +79,27 @@ const formatForecastWeather = (data) => {
 };
 
 const getFormattedWeatherData = async (searchParams) => {
-  const formattedCurrentWeather = await getWeatherData(
-    "weather",
-    searchParams
-  ).then(formatCurrentWeather);
+  try {
+    const formattedCurrentWeather = await formatCurrentWeather(
+      await getWeatherData("weather", searchParams)
+    );
 
-  const { lat, lon } = formattedCurrentWeather;
+    const { lat, lon } = formattedCurrentWeather;
 
-  const formattedForecastWeather = await getWeatherData("onecall", {
-    lat,
-    lon,
-    exclude: "current,minutely,alerts",
-    units: "metric",
-  }).then(formatForecastWeather);
+    const formattedForecastWeather = await formatForecastWeather(
+      await getWeatherData("onecall", {
+        lat,
+        lon,
+        exclude: "current,minutely,alerts",
+        units: "metric",
+      })
+    );
 
-  return { ...formattedCurrentWeather, ...formattedForecastWeather };
+    return { ...formattedCurrentWeather, ...formattedForecastWeather };
+  } catch (error) {
+    console.error("Error getting formatted weather data:", error);
+  }
 };
-
 const formatToLocalTime = (
   secs,
   zone,
