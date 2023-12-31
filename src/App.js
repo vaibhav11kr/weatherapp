@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Search from './components/Search';
 import Main from './components/Main';
@@ -56,7 +55,7 @@ function App() {
           </div>
         </>
       ) : error ? (
-        <p>Error loading weather data. Please try again.</p>
+        <p className='text-gray-50'>Error loading weather data. Please try again.</p>
       ) : null}
     </div>
   );

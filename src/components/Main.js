@@ -27,7 +27,7 @@ const Main = ({
     "h-[4rem] w-[4rem] md:h-[8rem] md:w-[8rem] bg-no-repeat bg-center";
   const infoBarClass =
     "bg-[#202B3B] w-[100%] md:w-[90%] md:h-10 h-8 flex absolute bottom-0 justify-center items-center rounded-lg";
-  const infoBarItemClass = "text-[0.7rem] md:text-base text-[#F0F1F1]";
+  const infoBarItemClass = "text-[0.55em] md:text-base text-[#F0F1F1]";
   return (
     <div className={containerClass}>
       <div className="flex flex-row ">
