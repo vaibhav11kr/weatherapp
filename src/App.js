@@ -32,7 +32,7 @@ function App() {
   }, [query]);
 
   return (
-    <div className="flex flex-col p-4 w-screen h-screen overflow-scroll md:overflow-hidden bg-[#0B131E]">
+    <div className="flex flex-col p-4 w-screen h-screen overflow-auto bg-[#0B131E]">
       {loading ? (
         <div className="flex items-center justify-center h-screen">
           <div className="animate-spin rounded-full border-t-4 border-blue-500 border-b-4 border-gray-200 h-12 w-12"></div>
